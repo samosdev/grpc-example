@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "github.com/epa-datos/grpc-example/protos";
+
+package protos;
+
+service Genshin {
+  rpc GetCharacterInfo (CharacterRequest) returns (CharacterReply) {}
+  rpc GetAllElementsFromType (TypeRequest) returns (TypeListReply) {}
+}
+
+message CharacterRequest {
+  string name = 1;
+}
+
+message CharacterReply {
+  string name = 1;
+  string vision = 2;
+  string weapon = 3;
+  string nation = 4;
+  string affiliation = 5;
+  int64 rarity = 6;
+  string constellation = 7;
+  string birthday = 8;
+  string description = 9;
+}
+
+message TypeRequest {
+  string type = 1;
+}
+
+message TypeListReply{
+  repeated string elements = 1; 
+}
